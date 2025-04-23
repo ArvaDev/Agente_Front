@@ -2,19 +2,24 @@ import './area.css';
 import Message from '../message/message';
 import { useEffect, useState } from 'react';
 
+interface Message {
+    user: string;
+    contain: string;
+}
+
 export default function Area() {
-    const [messages, setMessages] = useState<any[]>([]);
+    const [messages, setMessages] = useState<Message[]>([]);
 
     useEffect(() => {
-        const ws = new WebSocket('ws://localhost:3000');
+        const ws = new WebSocket('ws://localhost:8000');
 
         ws.onopen = () => {
             console.log('Conexión WebSocket abierta');
         };
 
         ws.onmessage = (event) => {
-            console.log('Mensaje recibido:', event.data);
-            setMessages(prev => [...prev, event.data]);
+            const message = JSON.parse(event.data);
+            setMessages(prev => [...prev, message]);
         };
 
         ws.onerror = (error) => {
@@ -34,9 +39,11 @@ export default function Area() {
     return (
         <div className='AreaClass'>
             <div className='Area'>
-                {messages.map((message, index) => (
+                {messages.length > 0 ? messages.map((message, index) => (
                     <Message key={index} user={message.user} contain={message.contain} />
-                ))}
+                ))
+                : <h1>En que puedo ayudarte</h1>
+            }
             </div>
         </div>
     )

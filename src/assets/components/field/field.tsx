@@ -8,7 +8,7 @@ export default function Field() {
     const socketRef = useRef<WebSocket | null>(null);
 
     useEffect(() => {
-        const socket = new WebSocket('ws://localhost:3000');
+        const socket = new WebSocket('ws://localhost:8000');
         socketRef.current = socket;
 
         socket.onopen = () => {
@@ -31,8 +31,8 @@ export default function Field() {
     const onSubmit = (data: any) => {
         const message = data.texto;
         if (socketRef.current && socketRef.current.readyState === WebSocket.OPEN) {
-            socketRef.current.send(message);
-            console.log('📤 Mensaje enviado:', message);
+            const mess = {user: 'me', contain: message};
+            socketRef.current.send(JSON.stringify(mess));
             reset();
         } else {
             console.warn('⚠️ WebSocket no conectado. No se pudo enviar el mensaje.');
