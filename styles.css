@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #3b3b3b;
+    color: #fff;
+}
+
+.section {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #686868;
+    border-radius: 5px;
+    background: #505050;
+}
+
+button {
+    padding: 8px 15px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #bababa;
+}
+
+input {
+    outline: none;
+    border: none;
+    background: #797979;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+select {
+    background: #797979;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+textarea {
+    background: #797979;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    resize: none;
+    height: 200px;
+}
+
+#messages {
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid #686868;
+    background: #505050;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.system {
+    background-color: #686868;
+}
+
+.user {
+    background-color: #686868;
+    text-align: right;
+}
+
+.connection-status {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.connected {
+    background-color: #59b46f;
+    color: #155724;
+}
+
+.disconnected {
+    background-color: #b6555d;
+    color: #721c24;
+}
+
+.connecting {
+    background-color: #b39c52;
+    color: #856404;
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #686868 #505050;
+}

@@ -1,13 +1,46 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/OpenIA_Logo.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GPT Agent</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PDF AI Agent</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>PDF AI Agent</h1>
+    <div id="connection-status" class="connection-status disconnected">Desconectado</div>
+
+    <div class="section">
+        <h2>1. Seleccionar PDF</h2>
+        <select id="pdfSelector">
+            <option value="">-- Selecciona un PDF precargado --</option>
+            <option value="uploads/constitucion1.pdf">constitucion1</option>
+            <option value="uploads/documento.pdf">Documento técnico</option>
+            <option value="uploads/informe.pdf">Informe anual</option>
+        </select>
+        <p>O utiliza una ruta personalizada:</p>
+        <input type="text" id="pdfPath" placeholder="Ruta del PDF (ej: uploads/documento.pdf)">
+    </div>
+
+    <div class="section">
+        <h2>2. Procesar PDF</h2>
+        <div>
+            <label>Tamaño de fragmento: <input type="number" id="chunkSize" value="1000"></label>
+            <label>Superposición: <input type="number" id="chunkOverlap" value="200"></label>
+        </div>
+        <button id="processBtn">Procesar PDF</button>
+    </div>
+
+    <div class="section">
+        <h2>3. Hacer preguntas</h2>
+        <textarea id="question" rows="3" placeholder="Escribe tu pregunta aquí..."></textarea>
+        <button id="askBtn">Enviar pregunta</button>
+    </div>
+
+    <div id="messages"></div>
+
+    <script src="script.js"></script>
+</body>
+
 </html>
